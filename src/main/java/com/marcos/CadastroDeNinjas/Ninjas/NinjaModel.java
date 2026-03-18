@@ -1,5 +1,6 @@
-package com.marcos.CadastroDeNinjas;
+package com.marcos.CadastroDeNinjas.Ninjas;
 
+import com.marcos.CadastroDeNinjas.Missoes.MissoesModel;
 import jakarta.persistence.*;
 
 @Entity
@@ -8,10 +9,19 @@ public class NinjaModel {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+
     private Long id;
+
     private String nome;
+
     private String email;
+
     private int idade;
+
+    @ManyToOne
+    @JoinColumn(name = "missao_id")
+    private MissoesModel missao;
+
 
     public NinjaModel() {
 
